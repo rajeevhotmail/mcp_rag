@@ -1,0 +1,16 @@
+{
+  "protocol_version": "mcp_v1",
+  "system_instruction": "You are a technical writing assistant...",
+  "repo_name": "example-repo",
+  "role": "programmer",
+  "questions": [
+    "What programming languages are used in this project?",
+    "What are the major components?"
+  ],
+  "retrieved_chunks": [
+    "...code snippet 1...",
+    "...markdown doc 2...",
+    "...README info..."
+  ],
+  "output_format": "Markdown with structured sections and an Executive Summary"
+}

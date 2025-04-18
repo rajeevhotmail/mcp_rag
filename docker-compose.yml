@@ -1,0 +1,40 @@
+# Directory: /mnt/data/mcp_rag
+
+version: '3.8'
+
+services:
+  backend:
+    image: python:3.10-slim
+    container_name: mcp_rag_api
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"
+    command: bash -c "pip install -r requirements.txt && uvicorn app.api:app --host 0.0.0.0 --port 8000"
+
+  nginx:
+    image: nginx:latest
+    container_name: mcp_rag_nginx
+    depends_on:
+      - backend
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
+  certbot:
+    image: certbot/certbot
+    container_name: mcp_rag_certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c"
+    command: >
+      "trap exit TERM; while :; do sleep 1 & wait $!; done"
+
+volumes:
+  data:
