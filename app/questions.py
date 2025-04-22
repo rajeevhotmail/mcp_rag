@@ -1,4 +1,5 @@
 QUESTION_TEMPLATES = {
+
     "programmer": [
         "What programming languages and build tools are used in this project?",
         "How is the codebase structured into packages or modules?",
@@ -11,6 +12,8 @@ QUESTION_TEMPLATES = {
         "How is version control structured (e.g., branches, tags, commit frequency)?",
         "What naming conventions and style guides does the code follow?"
     ],
+
+
     "ceo": [
         "What is the core objective or function of this project?",
         "Which business use case or problem is this codebase addressing?",

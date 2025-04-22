@@ -2,3 +2,4 @@ fastapi
 uvicorn
 pydantic
 gitpython
+openai==0.28.1
