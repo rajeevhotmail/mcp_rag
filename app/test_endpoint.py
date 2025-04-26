@@ -96,3 +96,20 @@ Forecast: {period['detailedForecast']}
 if __name__ == "__main__":
     # Initialize and run the server
     mcp.run(transport='stdio')
+
+"""
+claude_desktop_config.json
+{
+    "mcpServers": {
+        "weather": {
+            "command": "D:\\python_work\\mcp_rag\\.venv\\Scripts\\uv.exe",
+            "args": [
+                "--directory",
+                "D:\\python_work\\mcp_rag\\app",
+                "run",
+                "test_endpoint.py"
+            ]
+        }
+    }
+}
+"""
